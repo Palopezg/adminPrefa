@@ -2,7 +2,7 @@
 
 entity Characteristic {
   characteristicId  String required ,
-  descripcion  String  
+  descripcion  String
 }
 
 entity ServiceType {
@@ -27,7 +27,7 @@ enum Tecnologia {
 }
 
 relationship ManyToOne {
-	Characteristic{serviceId} to ServiceType
+	Characteristic to ServiceType
 }
 
 
