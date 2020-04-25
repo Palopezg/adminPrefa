@@ -1,0 +1,45 @@
+
+
+entity Characteristic {
+  characteristicId  String required ,
+  descripcion  String  
+}
+
+entity ServiceType {
+  serviceId  String required  ,
+  descripcion  String ,
+}
+
+
+entity Parametros {
+	parametro String required,
+    valor String required
+}
+
+entity TipoDeco {
+	tipoDeco String required,
+    tecnologia Tecnologia required,
+    multicast String required
+}
+
+enum Tecnologia {
+    FTTH, HFC, COBRE
+}
+
+relationship ManyToOne {
+	Characteristic{serviceId} to ServiceType
+}
+
+
+// Set pagination options
+paginate ServiceType, Characteristic, TipoDeco, Parametro with pagination
+
+filter ServiceType
+filter Characteristic
+filter Parametro
+filter TipoDeco
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// angularSuffix * with mySuffi
