@@ -1,14 +1,6 @@
 
 
-entity Characteristic {
-  characteristicId  String required ,
-  descripcion  String  
-}
 
-entity ServiceType {
-  serviceId  String required  ,
-  descripcion  String ,
-}
 
 
 entity Parametros {
@@ -27,19 +19,17 @@ enum Tecnologia {
 }
 
 relationship ManyToOne {
-	Characteristic{serviceId} to ServiceType
+	Characteristic{serviceType(descripcion)} to ServiceType
 }
 
 
 // Set pagination options
-paginate ServiceType, Characteristic, TipoDeco, Parametro with pagination
+paginate TipoDeco, Parametro with pagination
 
-filter ServiceType
-filter Characteristic
 filter Parametro
 filter TipoDeco
-
-// Set service options to all except few
-service all with serviceImpl 
+ 
+ 
+ service all with serviceImpl 
 
 // angularSuffix * with mySuffi
