@@ -2,7 +2,8 @@
 
 entity Characteristic {
   characteristicId  String required ,
-  descripcion  String  
+  descripcion  String,  
+  serviceId ServiceType
 }
 
 entity ServiceType {
